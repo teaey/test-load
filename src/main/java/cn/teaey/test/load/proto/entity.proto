@@ -1,0 +1,226 @@
+package cn.teaey.test.load.proto;
+
+message PlayerBlob
+{
+    required string account = 1;
+    required int32 logicalServerId = 2;
+    required string nickname = 3;
+    required int32 avatarId = 4;
+    required int32 level = 5;
+    required int32 exp = 6;
+    required int32 vipLevel = 7;
+    required int32 unlockedBag = 8;
+    required int32 unlockedBagBought = 9;
+    required int32 unlockedGuajiBag = 10;
+    required int32 unlockedGuajiBagBought = 11;
+    required int32 gameLevelId = 12;
+    required int32 powerUpper = 13;
+    required int32 energyUpper = 14;
+    required int32 power = 15;
+    required int32 energy = 16;
+    required int32 soul = 17;
+    required int32 coin = 18;
+    required int32 yuanbao = 19;
+    required int32 yuanbaoRecharged = 20;
+    required int32 yuanbaoConsumed = 21;
+    required int64 buffAtkStart = 22;
+    required int32 buffAtkDurationSec = 23;
+    required float buffAtkRate = 24;
+    required int64 buffDefStart = 25;
+    required int32 buffDefDurationSec = 26;
+    required float buffDefRate = 27;
+    required int64 buffExpStart = 28;
+    required int32 buffExpDurationSec = 29;
+    required float buffExpRate = 30;
+    required int64 buffHpStart = 31;
+    required int32 buffHpDurationSec = 32;
+    required float buffHpRate = 33;
+    required int32 fighting = 34;
+    required int32 arenaRanking = 35;
+    required int32 status = 36;
+    required int64 created = 37;
+    required bool isFirstSteal = 38;
+    required int32 lastBonusNpcId = 39;
+    required int32 ver = 40;
+    required int32 totalPoints = 41;
+    required int32 currentCredits = 42;
+    required int32 dailyFightingCnt = 43;
+    required int32 dailyStealingTimes = 44;
+    required int32 dailyYuanbaoFromMonster = 45;
+    required int32 dailyUsedPantaoTimes = 46;
+    required int32 dailyUsedRenshenguoTimes = 47;
+    required string srcChannel = 48;
+    required int64 lastLoginBonusTime = 49;
+    required bool isFirstRobFabaoFrag = 50;
+    required bool hasGeneratedFabaoFromFrag = 51;
+    required int32 guajiNum = 52;
+    required int32 dailyGuajiTimes = 53;
+}
+
+message PlayerBagStoreBlob
+{
+    repeated PlayerBagBlob playerBagBlob = 1;
+}
+
+message PlayerEventSysStoreBlob
+{
+    repeated PlayerEventSysBlob playerEventSysBlob = 1;
+}
+
+message PlayerFriendStoreBlob
+{
+    repeated PlayerFriendBlob playerFriendBlob = 1;
+}
+
+message PlayerGuajiStoreBlob
+{
+    repeated PlayerGuajiBlob playerGuajiBlob = 1;
+}
+
+message PlayerMsgStoreBlob
+{
+    repeated PlayerMsgBlob playerMsgBlob = 1;
+}
+
+message PlayerRechargeStoreBlob
+{
+    repeated PlayerRechargeBlob playerRechargeBlob = 1;
+}
+
+message PlayerTaskLevelBattleAgainStoreBlob
+{
+    repeated PlayerTaskLevelBattleAgainBlob playerTaskLevelBattleAgainBlob = 1;
+}
+
+message PlayerWuxingCardStoreBlob
+{
+    repeated PlayerWuxingCardBlob playerWuxingCardBlob = 1;
+}
+
+message PlayerWuxingRaffleInfoStoreBlob
+{
+    repeated PlayerWuxingRaffleInfoBlob playerWuxingRaffleInfoBlob = 1;
+}
+
+message PlayerBagBlob
+{
+    required int32 playerId = 1;
+    required int32 bagType = 2;
+    required int32 cellId = 3;
+    required int32 itemType = 4;
+    required int32 itemId = 5;
+    required int32 itemAmt = 6;
+    required int32 equipEnhLevel = 7;
+    required int32 equipGrade = 8;
+    required int32 equipCoinSelling = 9;
+    required int32 bagSortNum = 10;
+}
+
+message PlayerEventSysBlob
+{
+    required int32 type = 1;
+    required int32 playerId = 2;
+    required int32 otherPlayerId = 3;
+    required string otherPlayerName = 4;
+    required string eventContent = 5;
+    required int64 eventTime = 6;
+    required int32 refProcessId = 7;
+    required bool isProcessed = 8;
+    required bool isRead = 9;
+    required int32 itemType = 10;
+    required int32 itemId = 11;
+    required int32 itemAmt = 12;
+    required int32 guajiNum = 13;
+}
+
+message PlayerFriendBlob
+{
+    required int32 playerId = 1;
+    required int32 friendId = 2;
+    required int64 establishTime = 3;
+    required bool isAllowGuajiStolen = 4;
+    required int32 logicalServerId = 5;
+}
+
+message PlayerGuajiBlob
+{
+    required int32 playerId = 1;
+    required int32 logicalServerId = 2;
+    required int64 guajiStartTime = 3;
+    required int64 guajiTimeoutTime = 4;
+    required int32 guajiZoneId = 5;
+    required int32 guajiDurationSec = 6;
+    required int64 guajiLastViewTime = 7;
+    required int32 guajiMonsterCnt = 8;
+    required int32 guajiCoinGot = 9;
+    required int32 guajiExpGot = 10;
+    required int32 guajiDropCnt = 11;
+    required int32 guajiYuanbaoGot = 12;
+    required int32 guajiStatus = 13;
+    required int32 guajiStolenTimes = 14;
+}
+
+message PlayerMsgBlob
+{
+    required int32 playerId = 1;
+    required int32 fromType = 2;
+    required string content = 3;
+    required int64 msgTime = 4;
+}
+
+message PlayerRechargeBlob
+{
+    required int32 playerId = 1;
+    required int32 totalAmount = 2;
+    required int64 lastOpTime = 3;
+    required int32 ver = 4;
+}
+
+message PlayerTaskLevelBattleAgainBlob
+{
+    required int32 playerId = 1;
+    required int32 taskLevelId = 2;
+    required int32 levelType = 3;
+    required int32 remainingFightCnt = 4;
+}
+
+message PlayerWuxingCardBlob
+{
+    required string name = 1;
+    required int32 playerId = 2;
+    required int32 tplId = 3;
+    required int32 curExp = 4;
+    required int32 upgradeExp = 5;
+    required int32 level = 6;
+    required int32 cardGrade = 7;
+    required int32 wuxingType = 8;
+    required int32 bufType = 9;
+    required float bufValue = 10;
+    required float growRate = 11;
+    required float starAddRate = 12;
+    required int32 starLevel = 13;
+    required int32 equippedWuxingType = 14;
+    required bool isEquipped = 15;
+    required bool isEx = 16;
+    required int32 baseExp = 17;
+    required int32 usedExp = 18;
+    required int64 createDt = 19;
+    required int64 lastUpdateDt = 20;
+}
+
+message PlayerWuxingRaffleInfoBlob
+{
+    required int32 playerId = 1;
+    required int32 raffleType = 2;
+    required int32 remainTimeSpan = 3;
+    required int32 dailyRemainFreeTimes = 4;
+    required bool isFirstYb = 5;
+    required int32 reqYbAmt = 6;
+    required int32 cardCntYb = 7;
+    required int32 accumulateTimes = 8;
+    required int32 totalCompensateTimes = 9;
+    required int64 roundStartDt = 10;
+    required int64 createDt = 11;
+    required int64 lastUpdateDt = 12;
+    required int32 logicalServerId = 13;
+}
