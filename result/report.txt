@@ -4,33 +4,33 @@
 
 二、测试环境
 
-	两种方式采用完全一样的对象字段，在完全一样的数据量下进行测试
+	两种方式使用完全一样的对象字段，在同样的数据量下进行测试
 
-	数据量是由吴旭提供的一个过了新手引导期玩家的所有对象（可以认为是玩家的平均水平），包括：
-	1个Player
-	20个PlayerBag
-	10个PlayerEventSys
-	10个PlayerFriend
-	1个PlayerGuaji
-	1个PlayerMsg
-	1个PlayerRecharge
-	60个PlayerWuxingCard
-	70个PlayerTaskLevelBattleAgain
-	1个PlayerWuxingRaffleInfo
+	数据量是由吴旭提供的一个过了新手引导期玩家的所有信息（可以认为是玩家的平均水平），包括：
+	1 个Player
+	20 个PlayerBag
+	10 个PlayerEventSys
+	10 个PlayerFriend
+	1 个PlayerGuaji
+	1 个PlayerMsg
+	1 个PlayerRecharge
+	60 个PlayerWuxingCard
+	70 个PlayerTaskLevelBattleAgain
+	1 个PlayerWuxingRaffleInfo
 
 	PS：
 		所有表都已添加对player_id_字段的索引
-		Java序列号方式：Google Protoco Buffers
+		Java序列化方式：Google Protoco Buffers
 		
-	Blob的好处：
-		速度相当快
-		控制数据库表的数量级（跟Plyaer数量基本一致）
-		无缝迁移到ｎｏｓｑｌ
-	Blob的坏处：
-		无法通过数据库客户端直接修改数值（在有缓存的情况下本来修改起来就不方便，方案是在游戏内部做ｄｅｂｕｇ命令）
-		坏数据处理没有传统方式方便，需要提供工具修改
+	Blob的优势：
+		速度比较快
+		可以控制数据库表的数量级（跟Plyaer数量一致）
+		可以无缝切换到文件系统存储或者Redis等Nosql存储
+	Blob的劣势：
+		测试时，无法通过数据库客户端直接修改数值（解决方案是在游戏内部做debug命令）
+		坏数据不能直接通过数据库修改（需要另外维护工具）
 
-三、 插入测试（进行测试1.2时传统方式单线程插入mysqld cpu占用基本在20%-25%，进行测试3的时候，cpu基本在25%-32%；Blob方式mysqld cpu占用在15%作用）
+三、 插入测试（进行测试1.2传统方式单线程插入mysqld cpu占用基本在20%-25%上下，进行测试3时，cpu基本在25%-32%；Blob方式mysqld cpu占用在15%上下）
 	
 	测试1
 
@@ -66,7 +66,7 @@
 		现有玩家数：100000
 		加载玩家数：10000
 		传统表结构方式加载[10000]条玩家数据耗时[172619]ms 平均每个玩家数据耗时[17.2619]ms
-        Blob方式加载[10000]条玩家数据耗时[51881]ms 平均每个玩家数据耗时[5.1881]ms
+        	Blob方式加载[10000]条玩家数据耗时[51881]ms 平均每个玩家数据耗时[5.1881]ms
 		
 	测试2
 	
